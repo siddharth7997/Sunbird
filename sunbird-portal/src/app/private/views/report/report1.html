@@ -1,0 +1,57 @@
+<center>
+    <h1 style="font-family: 'Courier New', Courier, monospace">
+        {{name}}
+    </h1>
+</center>
+
+<div class="form-group">
+    <label for="sel1">Course</label>
+    <select class="form-control" ng-model="bow" ng-options="y for y in courses" ng-change="update_things(bow)">
+    </select>
+</div>
+
+
+<div class="form-group" ng-if="bow && showContent" ng-cloak>
+    <label for="sel1">Select The content:</label>
+    <select class="form-control" id="sel1" ng-options="z for z in contents" ng-model="content" ng-change="contentConsume(content)">
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="sel1">Graph Type</label>
+    <select class="form-control" id="lol1" ng-model="graph_type" ng-options="m for m in graph_option" ng-change="updateGraph(graph_type)">
+    </select>
+</div>
+
+
+<div class="card" ng-if="bow && show && show_graph">
+    <div class="card-body bg-light">
+<center>
+    <div id="chart_container" style="margin: 0 auto">
+    </div>
+</center>
+    </div>
+</div>
+
+
+<br>
+<center>
+<div class="table-reponsive" style="max-height: 200px;">
+    <table class="table table-striped text-center w-auto table-bordered" ng-if="bow && show_table" >
+    <thead>
+    <tr>
+        <th ng-repeat="x in tableheader">
+            {{x}}
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="x in data">
+        <td ng-repeat="y in x">
+            {{y}}
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</center>

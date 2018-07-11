@@ -1,0 +1,80 @@
+<ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link {{r1}}" onclick="change()" href="#" ui-sref="Report" ng-click="$root.generateInteractEvent('report', '', 'user', '1.0', 'report', 'report')">
+                Content Consumption
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{r2}}" href="#" ui-sref="Report2" ng-click="$root.generateInteractEvent('report2', '', 'user', '1.0', 'report2', 'report2')">
+                Location
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{r3}}" href="#" ui-sref="Report3" ng-click="$root.generateInteractEvent('report3', '', 'user', '1.0', 'report3', 'report3')">
+                Education
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{r4}}" id="meow" href="#" ui-sref="Report4" ng-click="$root.generateInteractEvent('report4', '', 'user', '1.0', 'report4', 'report4')">
+                Gender
+            </a>
+        </li>
+</ul>
+                
+<center>
+    <h2 style="font-family: 'Courier New', Courier, monospace">
+        {{name}}
+    </h2>
+</center>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+                <label for="sel1">COURSE</label>
+                <select class="form-control" ng-model="bow" ng-options="y for y in courses" ng-change="update_things(bow)">
+                </select>
+        </div>
+    </div>
+    <div class="col"  ng-if="bow && showContent">
+        <div class="form-group">
+                <label for="sel1">CONTENT</label>
+                <select class="form-control" id="sel1" ng-options="z for z in contents" ng-model="content" ng-change="contentConsume(content)">
+                </select>
+        </div>
+                
+    </div>
+    <div class="col">
+        <div class="form-group">
+                <label for="sel1">GRAPH TYPE</label>
+                <select class="form-control" id="lol1" ng-model="graph_type" ng-options="m for m in graph_option" ng-change="updateGraph(graph_type)">
+                </select>
+        </div>
+    </div>
+</div>    
+<br>
+<br>    
+    
+<div class="row" ng-if="bow && show && show_graph">
+    <div class="col" id="chart_container" style="margin: 0 auto"/>
+    <div class="col" style="overflow-y:auto;height:400px;">
+    <center>
+        <table class="table table-striped text-center w-auto table-bordered" ng-if="bow && show_table" >
+                <thead> 
+                <tr>
+                    <th ng-repeat="x in tableheader">
+                        {{x}}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in data">
+                    <td ng-repeat="y in x">
+                        {{y}}
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </center>
+    </div>
+    
+</div>
+        

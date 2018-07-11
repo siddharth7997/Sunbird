@@ -1,0 +1,81 @@
+<ul class="nav nav-pills justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link {{r1}}" onclick="change()" href="#" ui-sref="Report" ng-click="$root.generateInteractEvent('report', '', 'user', '1.0', 'report', 'report')">
+            Report1
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{r2}}" href="#" ui-sref="Report2" ng-click="$root.generateInteractEvent('report2', '', 'user', '1.0', 'report2', 'report2')">
+            Report2
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{r3}}" href="#" ui-sref="Report3" ng-click="$root.generateInteractEvent('report3', '', 'user', '1.0', 'report3', 'report3')">
+            Report3
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{r4}}" id="meow" href="#" ui-sref="Report4" ng-click="$root.generateInteractEvent('report4', '', 'user', '1.0', 'report4', 'report4')">
+            Report4
+        </a>
+    </li>
+</ul>
+
+
+
+<center>
+    <h1 style="font-family: 'Courier New', Courier, monospace">
+        {{name}}
+    </h1>
+</center>
+
+<div class="form-group">
+    <label for="sel1">Course</label>
+    <select style="width: auto" class="form-control" ng-model="bow" ng-options="y for y in courses" ng-change="update_things(bow)">
+    </select>
+</div>
+
+
+<div class="form-group" ng-if="bow && showContent" ng-cloak>
+    <label for="sel1">Select The content:</label>
+    <select class="form-control" id="sel1" ng-options="z for z in contents" ng-model="content" ng-change="contentConsume(content)">
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="sel1">Graph Type</label>
+    <select class="form-control" id="lol1" ng-model="graph_type" ng-options="m for m in graph_option" ng-change="updateGraph(graph_type)">
+    </select>
+</div>
+
+
+<div  ng-if="bow && show && show_graph">
+    <table>
+        <tr>
+            <td>
+                <div id="chart_container" style="margin: 0 auto"/>
+            </td>
+            <td>
+                <div style="overflow-y:scroll;height:400px;">
+                    <table class="table table-striped text-center w-auto table-bordered" ng-if="bow && show_table" >
+                            <thead> 
+                            <tr>
+                                <th ng-repeat="x in tableheader">
+                                    {{x}}
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="x in data">
+                                <td ng-repeat="y in x">
+                                    {{y}}
+                                </td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+</div>

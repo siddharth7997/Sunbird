@@ -1,0 +1,26 @@
+<center>
+    <h1 style="font-family: 'Courier New', Courier, monospace">
+        {{name}}
+    </h1>
+</center>
+<hr>
+<div class="col" style="overflow-y:auto;height:500px;">
+    <center>
+        <table class="table table-striped text-center w-auto table-bordered" ng-if="bow && show_table" >
+                <thead> 
+                <tr>
+                    <th ng-repeat="x in tableheader">
+                        {{x}}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in data">
+                    <td ng-repeat="y in x">
+                        {{y}}
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </center>
+</div>

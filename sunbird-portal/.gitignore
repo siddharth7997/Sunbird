@@ -1,0 +1,9 @@
+/src/node_modules
+/src/dist
+/.tmp
+/.sass-cache
+/src/app/thirdparty/bower_components
+/src/coverage
+/npm-debug.log
+.coverrun
+/src/mochawesome-report
